@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EnyoiProject.NVVM.Views.PersonView"
+             Title="Persona"
+             BackgroundColor="White">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="newperson.png" Command="{Binding NewPersonCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <VerticalStackLayout VerticalOptions="Center"
+            HorizontalOptions="Center">
+        <Label 
+            Text="Lista de personas"
+            TextColor="Black"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>
