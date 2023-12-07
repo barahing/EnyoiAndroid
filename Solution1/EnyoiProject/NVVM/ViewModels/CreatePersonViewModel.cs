@@ -18,16 +18,19 @@ namespace EnyoiProject.NVVM.ViewModels
         private string _document;
         private string _firstName;
         private string _lastName;
-        private string _address;
         private string _phone;
         private string _email;
         private bool _isRunning;
         private bool _isEnabled;
+        private string _addres;
         private readonly IApiService _apiService;
+        private readonly INavigation _navigation;
 
-        public CreatePersonViewModel(IApiService apiService)
+        public CreatePersonViewModel(IApiService apiService, INavigation navigation)
         {
             _apiService = apiService;
+            _navigation = navigation;
+            _isEnabled = true;
         }
 
         public string Document 
@@ -73,16 +76,16 @@ namespace EnyoiProject.NVVM.ViewModels
             }
         }
 
-        public string Address
+        public string Addres
         {
-            get { return _address; }
+            get { return _addres; }
 
             set
             {
-                if (_address != value)
+                if (_addres != value)
                 {
-                    _address = value;
-                    OnPropertyChanged(nameof(Address));
+                    _addres = value;
+                    OnPropertyChanged(nameof(Addres));
                 }
             }
         }
@@ -167,13 +170,13 @@ namespace EnyoiProject.NVVM.ViewModels
                 Document = Document,
                 FirstName = FirstName,
                 LastName = LastName,
-                Address = Address,
+                Addres = Addres,
                 Phone = Phone,
                 Email = Email
             };
 
             string url = App.Current.Resources["UrlAPI"].ToString();
-            Response response = await _apiService.PostAsync(url,"/api", "/people", person);
+            Response response = await _apiService.PostAsync(url,"/api", "/People", person);
             IsRunning = false;
             IsEnabled = true;
 
@@ -203,7 +206,7 @@ namespace EnyoiProject.NVVM.ViewModels
                 await App.Current.MainPage.DisplayAlert("Error", "El campo Apellidos no puede estar vacío", "Aceptar");
                 return false;
             }
-            if (string.IsNullOrEmpty(Address))
+            if (string.IsNullOrEmpty(Addres))
             {
                 await App.Current.MainPage.DisplayAlert("Error", "El campo Dirección no puede estar vacío", "Aceptar");
                 return false;
