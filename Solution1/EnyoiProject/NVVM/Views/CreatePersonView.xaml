@@ -68,7 +68,7 @@
                             TextColor="Black"
                             Placeholder="Ingresa la dirección"
                             PlaceholderColor="lightgray"
-                            Text="{Binding Address}">
+                            Text="{Binding Addres}">
                         </Entry>
                     </StackLayout>
                 </Frame>

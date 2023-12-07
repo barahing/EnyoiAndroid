@@ -9,6 +9,7 @@ namespace EnyoiProject.Services
 {
     public interface IApiService
     {
+        Task<Response> GetListAsync<T>(string urlBase, string servicePrefix, string controller);
         Task<Response> PostAsync<T>(string urlBase, string servicePrefix, string controller, T model);
     }
 }

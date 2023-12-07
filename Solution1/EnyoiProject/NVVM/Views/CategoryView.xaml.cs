@@ -3,19 +3,19 @@ using EnyoiProject.Services;
 
 namespace EnyoiProject.NVVM.Views;
 
-public partial class PersonView : ContentPage 
+public partial class CategoryView : ContentPage
 {
-	public PersonView()
-	{
+    public CategoryView()
+    {
         InitializeComponent();
         var serviceProvider = new ServiceCollection()
             .AddSingleton<IApiService, ApiService>()
             .BuildServiceProvider();
 
         var _apiService = serviceProvider.GetRequiredService<IApiService>();
-        BindingContext = new PersonViewModel(this.Navigation, _apiService);
+        BindingContext = new CategoryViewModel(this.Navigation, _apiService);
 
-        
+
     }
 
 

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EnyoiProject.NVVM.Views.CreateProductView"
+             Title="Crear país"
+             BackgroundColor="white">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="5">
+                <Frame BorderColor="Gray" CornerRadius="5" Padding="5" Margin="5">
+                    <StackLayout>
+                        <Label TextColor="Black" Text="Nombre*" FontAttributes="Bold" />
+                        <Entry TextColor="Black" Placeholder="Ingrese el Nombre" Text="{Binding Name}" />
+                    </StackLayout>
+                </Frame>
+
+                <Frame BorderColor="Gray" CornerRadius="5" Padding="5" Margin="5">
+                    <StackLayout>
+                        <Label TextColor="Black" Text="Descripción*" FontAttributes="Bold" />
+                        <Entry TextColor="Black" Placeholder="Ingrese la descripción" Text="{Binding Description}" />
+                    </StackLayout>
+                </Frame>
+
+                <Frame BorderColor="Gray" CornerRadius="5" Padding="5" Margin="5">
+                    <StackLayout>
+                        <Label TextColor="Black" Text="Precio*" FontAttributes="Bold" />
+                        <Entry TextColor="Black" Placeholder="Ingrese el precio" Text="{Binding Price}" Keyboard="Numeric"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame BorderColor="Gray" CornerRadius="5" Padding="5" Margin="5">
+                    <StackLayout>
+                        <Label TextColor="Black" Text="¿EstActivo?*" FontAttributes="Bold" />
+                        <Switch IsToggled="{Binding IsToggled}" BackgroundColor="WhiteSmoke" ThumbColor="Red" OnColor="Blue" HorizontalOptions="Start"></Switch>
+                    </StackLayout>
+                </Frame>
+
+                <Frame BorderColor="Gray" CornerRadius="5" Padding="5" Margin="5">
+                    <StackLayout>
+                        <Label TextColor="Black" Text="Categoria*" FontAttributes="Bold" />
+                        <Picker Title="Seleccione una categoría" SelectedItem="{Binding SelectedCategory}" TextColor="Black" ItemsSource="{Binding Categories}" ItemDisplayBinding="{Binding Name}"/>
+                    </StackLayout>
+                </Frame>
+                <Button 
+                 Text="Guardar" 
+                 Command="{Binding SaveProductCommand}" 
+                 BackgroundColor="#3498DB"
+                 TextColor="White"
+                 CornerRadius="10"
+                 HeightRequest="50" 
+                 WidthRequest="150"
+                 IsEnabled="{Binding IsEnabled}"
+                 FontSize="18" 
+                 Margin="10,20,10,0"/>
+                <ActivityIndicator
+                 IsRunning="{Binding IsRunning}"
+                 Color="Black"
+                 WidthRequest="100"
+                 HeightRequest="100"
+                 AbsoluteLayout.LayoutFlags="PositionProportional"
+                 AbsoluteLayout.LayoutBounds="0.5,0.5"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

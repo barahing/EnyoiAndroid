@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EnyoiProject.NVVM.Views.PersonView"
-             Title="Persona"
+             x:Class="EnyoiProject.NVVM.Views.CountryView"
+             Title="Paises"
              BackgroundColor="White">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="newperson.png" Command="{Binding NewPersonCommand}"></ToolbarItem>
+        <ToolbarItem IconImageSource="newperson.png" Command="{Binding NewCountryCommand}"></ToolbarItem>
     </ContentPage.ToolbarItems>
 
     <AbsoluteLayout>
         <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1"
                     AbsoluteLayout.LayoutFlags="All"
                     Padding="5">
-            <CollectionView ItemsSource="{Binding People}" x:Name="cpeopleViewm">
+            <CollectionView ItemsSource="{Binding Nations}" x:Name="ccountryViewm">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical"/>
                 </CollectionView.ItemsLayout>
@@ -37,10 +37,7 @@
                                         <RowDefinition Height="Auto"></RowDefinition>
                                         <RowDefinition Height="Auto"></RowDefinition>
                                         <RowDefinition Height="Auto"></RowDefinition>
-                                        <RowDefinition Height="Auto"></RowDefinition>
-                                        <RowDefinition Height="Auto"></RowDefinition>
-                                        <RowDefinition Height="Auto"></RowDefinition>
-                                    </Grid.RowDefinitions>
+                                   </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="AUTO"/>
                                         <ColumnDefinition Width="AUTO"/>
@@ -48,14 +45,14 @@
                                     </Grid.ColumnDefinitions>
                                     <Label HorizontalTextAlignment="Start"
                                            TextColor="Black"
-                                           Text="Docmento: "
+                                           Text="Id: "
                                            Grid.Row="0"
                                            Grid.Column="0"
                                            FontAttributes="Bold">
                                     </Label>
                                     <Label HorizontalTextAlignment="Start"
                                            TextColor="Black"
-                                           Text="{Binding Document}"
+                                           Text="{Binding Id}"
                                            Grid.Row="0"
                                            Grid.Column="1"
                                            FontAttributes="Bold">
@@ -63,66 +60,27 @@
 
                                     <Label HorizontalTextAlignment="Start" 
                                            TextColor="Black" 
-                                           Text="Nombres: "
+                                           Text="Nombre: "
                                            Grid.Row="1" 
                                            Grid.Column="0" 
                                            FontAttributes="Bold">
                                     </Label>
                                     <Label TextColor="Black" 
-                                           Text="{Binding FirstName}" 
+                                           Text="{Binding Name}" 
                                            Grid.Row="1" 
                                            Grid.Column="1">
                                     </Label>
 
                                     <Label HorizontalTextAlignment="Start" 
                                            TextColor="Black" 
-                                           Text="Apellidos: " 
+                                           Text="Nacionalidad: " 
                                            Grid.Row="2" 
                                            Grid.Column="0" 
                                            FontAttributes="Bold">
                                     </Label>
                                     <Label TextColor="Black" 
-                                           Text="{Binding LastName}" 
+                                           Text="{Binding Nationality}" 
                                            Grid.Row="2" 
-                                           Grid.Column="1">
-                                    </Label>
-
-                                    <Label HorizontalTextAlignment="Start"
-                                           TextColor="Black" 
-                                           Text="Dirección: " 
-                                           Grid.Row="3" 
-                                           Grid.Column="0" 
-                                           FontAttributes="Bold">
-                                    </Label>
-                                    <Label TextColor="Black" 
-                                           Text="{Binding Addres}"
-                                           Grid.Row="3"
-                                           Grid.Column="1">
-                                    </Label>
-
-                                    <Label HorizontalTextAlignment="Start" 
-                                           TextColor="Black" 
-                                           Text="Telefono: " 
-                                           Grid.Row="4" 
-                                           Grid.Column="0" 
-                                           FontAttributes="Bold">
-                                    </Label>
-                                    <Label TextColor="Black" 
-                                           Text="{Binding Phone}"
-                                           Grid.Row="4"
-                                           Grid.Column="1">
-                                    </Label>
-
-                                    <Label HorizontalTextAlignment="Start" 
-                                           TextColor="Black" 
-                                           Text="Email: " 
-                                           Grid.Row="5" 
-                                           Grid.Column="0" 
-                                           FontAttributes="Bold">
-                                    </Label>
-                                    <Label TextColor="Black" 
-                                           Text="{Binding Email}" 
-                                           Grid.Row="5"
                                            Grid.Column="1">
                                     </Label>
                                 </Grid>

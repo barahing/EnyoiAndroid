@@ -49,7 +49,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\categories.png" />
+	  <None Remove="Resources\Images\country.png" />
 	  <None Remove="Resources\Images\newPerson.png" />
+	  <None Remove="Resources\Images\person.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -58,7 +61,40 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="NVVM\Views\CreateCategoryView.xaml.cs">
+	    <DependentUpon>CreateCategoryView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="NVVM\Views\CreateCountryView.xaml.cs">
+	    <DependentUpon>CreateCountryView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="NVVM\Views\ProductView.xaml.cs">
+	    <DependentUpon>ProductView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="NVVM\Views\CategoryView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="NVVM\Views\CountryView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="NVVM\Views\CreatePersonView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="NVVM\Views\CreateProductView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="NVVM\Views\MainTabbedPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="NVVM\Views\CreateCategoryView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="NVVM\Views\CreateCountryView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="NVVM\Views\ProductView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="NVVM\Views\PersonView.xaml">

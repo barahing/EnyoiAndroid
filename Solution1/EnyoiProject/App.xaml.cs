@@ -8,7 +8,7 @@ namespace EnyoiProject
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new PersonView());
+            MainPage = new NavigationPage(new MainTabbedPage());
         }
     }
 }

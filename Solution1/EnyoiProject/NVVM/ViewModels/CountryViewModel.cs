@@ -16,46 +16,46 @@ using System.Windows.Input;
 
 namespace EnyoiProject.NVVM.ViewModels
 {
-    public class PersonViewModel : INotifyPropertyChanged
+    public class CountryViewModel : INotifyPropertyChanged
     {
         private INavigation _navigation;
-        private ObservableCollection<Person> _people;
+        private ObservableCollection<Country> _countries;
         private readonly IApiService _apiService;
-        private static PersonViewModel _instance;
+        private static CountryViewModel _instance;
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public PersonViewModel(INavigation navigation, IApiService apiService)
+        public CountryViewModel(INavigation navigation, IApiService apiService)
         {
             _instance = this;
             _navigation = navigation;
             _apiService = apiService;
-            LoadPersonAsync();
+            LoadCountryAsync();
         }
 
-        public ObservableCollection<Person> People
+        public ObservableCollection<Country> Nations
         {
-            get { return _people; }
+            get { return _countries; }
             set
             {
-                if (_people != value)
+                if (_countries != value)
                 {
-                    _people = value;
-                    OnPropertyChanged(nameof(People));
+                    _countries = value;
+                    OnPropertyChanged(nameof(Nations));
                 }
             }
         }
 
-        public ICommand NewPersonCommand => new Command(async () => await ExecuteNewPersonCommand());
+        public ICommand NewCountryCommand => new Command(async () => await ExecuteNewCountryCommand());
 
-        public static PersonViewModel GetInstance()
+        public static CountryViewModel GetInstance()
         {
             return _instance;
         }
-        private async Task ExecuteNewPersonCommand()
+        private async Task ExecuteNewCountryCommand()
         {
-            await _navigation.PushAsync(new CreatePersonView());
+            await _navigation.PushAsync(new CreateCountryView());
         }
-        private async void LoadPersonAsync()
+        private async void LoadCountryAsync()
         {
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
@@ -64,14 +64,14 @@ namespace EnyoiProject.NVVM.ViewModels
             }
 
             string url = App.Current.Resources["UrlAPI"].ToString();
-            Response response = await _apiService.GetListAsync<Person>(url, "/api", "/people");
+            Response response = await _apiService.GetListAsync<Country>(url, "/api", "/countries");
             if (!response.IsSuccess)
             {
                 await App.Current.MainPage.DisplayAlert("Error", response.Message, "Aceptar");
                 return;
             }
 
-            People = new ObservableCollection<Person>((List<Person>)response.Result);
+            Nations = new ObservableCollection<Country>((List<Country>)response.Result);
         }
 
         protected virtual void OnPropertyChanged(string propertyName)

@@ -16,46 +16,46 @@ using System.Windows.Input;
 
 namespace EnyoiProject.NVVM.ViewModels
 {
-    public class PersonViewModel : INotifyPropertyChanged
+    public class CategoryViewModel : INotifyPropertyChanged
     {
         private INavigation _navigation;
-        private ObservableCollection<Person> _people;
+        private ObservableCollection<Category> _categories;
         private readonly IApiService _apiService;
-        private static PersonViewModel _instance;
+        private static CategoryViewModel _instance;
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public PersonViewModel(INavigation navigation, IApiService apiService)
+        public CategoryViewModel(INavigation navigation, IApiService apiService)
         {
             _instance = this;
             _navigation = navigation;
             _apiService = apiService;
-            LoadPersonAsync();
+            LoadCategoryAsync();
         }
 
-        public ObservableCollection<Person> People
+        public ObservableCollection<Category> CategoryList
         {
-            get { return _people; }
+            get { return _categories; }
             set
             {
-                if (_people != value)
+                if (_categories != value)
                 {
-                    _people = value;
-                    OnPropertyChanged(nameof(People));
+                    _categories = value;
+                    OnPropertyChanged(nameof(CategoryList));
                 }
             }
         }
 
-        public ICommand NewPersonCommand => new Command(async () => await ExecuteNewPersonCommand());
+        public ICommand NewCategoryCommand => new Command(async () => await ExecuteNewCategoryCommand());
 
-        public static PersonViewModel GetInstance()
+        public static CategoryViewModel GetInstance()
         {
             return _instance;
         }
-        private async Task ExecuteNewPersonCommand()
+        private async Task ExecuteNewCategoryCommand()
         {
-            await _navigation.PushAsync(new CreatePersonView());
+            await _navigation.PushAsync(new CreateCategoryView());
         }
-        private async void LoadPersonAsync()
+        private async void LoadCategoryAsync()
         {
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
@@ -64,14 +64,14 @@ namespace EnyoiProject.NVVM.ViewModels
             }
 
             string url = App.Current.Resources["UrlAPI"].ToString();
-            Response response = await _apiService.GetListAsync<Person>(url, "/api", "/people");
+            Response response = await _apiService.GetListAsync<Category>(url, "/api", "/categories");
             if (!response.IsSuccess)
             {
                 await App.Current.MainPage.DisplayAlert("Error", response.Message, "Aceptar");
                 return;
             }
 
-            People = new ObservableCollection<Person>((List<Person>)response.Result);
+            CategoryList = new ObservableCollection<Category>((List<Category>)response.Result);
         }
 
         protected virtual void OnPropertyChanged(string propertyName)

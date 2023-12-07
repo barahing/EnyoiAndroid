@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="EnyoiProject.NVVM.Views.MainTabbedPage"
+            xmlns:local="clr-namespace:EnyoiProject.NVVM.Views"
+            xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            BackgroundColor="WhiteSmoke"
+            BarBackgroundColor="LightGray"
+            SelectedTabColor="Red"
+            UnselectedTabColor="black"
+            >
+
+    <local:PersonView IconImageSource="person.png"></local:PersonView>
+    <local:ProductView IconImageSource="categories.png"></local:ProductView>
+    <local:CountryView IconImageSource="country.png"></local:CountryView>
+    <local:CategoryView IconImageSource="categories.png"></local:CategoryView>
+    
+</TabbedPage>

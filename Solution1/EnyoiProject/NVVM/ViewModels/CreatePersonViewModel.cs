@@ -187,6 +187,7 @@ namespace EnyoiProject.NVVM.ViewModels
             }
 
             await App.Current.MainPage.DisplayAlert("OK", "Persona creada", "Aceptar");
+            await _navigation.PopAsync();
         }
 
         private async Task<bool> ValidateDateAsync()
